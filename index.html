@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Udavin Wijesundara</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://i.ibb.co/bXwbdwZ/Untitled-1.jpg">
+</head>
+<body class="light-theme">
+    <div class="profile-card">
+        <div class="profile-image">
+            <img src="https://i.ibb.co/bXwbdwZ/Untitled-1.jpg" alt="Profile Image">
+        </div>
+        <div class="profile-info">
+            <h2>Udavin Wijesusundara</h2>
+            <p>Developer | Photographer</p>
+            <p>Hi, I'm Udavin Wijesusundara I am 20 Years Old and I am Interested in Web Development,Web App Development and Photography</p>
+        </div>
+        <div class="links-container">
+            <div class="link-card">
+                <a href="https://wa.me/94722777000" class="link-item">
+                    <i class="fab fa-whatsapp"></i>
+                    WhatsApp
+                </a>
+            </div>
+            <div class="link-card">
+                <a href="https://www.instagram.com/udavin_wijesundara?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="link-item">
+                    <i class="fab fa-instagram"></i>
+                    Instagram
+                </a>
+            </div>
+            <div class="link-card">
+                <a href="https://www.facebook.com/profile.php?id=61559521554171" class="link-item">
+                    <i class="fab fa-facebook"></i>
+                    Facebook
+                </a>
+            </div>
+            <input type="checkbox" id="theme-toggle" class="switch">
+            <label for="theme-toggle" class="slider"></label>
+        </div>
+    </div>
+
+    <script>
+        function setTheme() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                themeToggle.checked = true;
+            } else {
+                const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.body.classList.toggle('dark-theme', prefersDarkMode);
+                localStorage.setItem('theme', prefersDarkMode ? 'dark' : 'light');
+                themeToggle.checked = prefersDarkMode;
+            }
+
+            themeToggle.addEventListener('change', () => {
+                document.body.classList.toggle('dark-theme');
+                localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', setTheme);
+    </script>
+</body>
+</html>
